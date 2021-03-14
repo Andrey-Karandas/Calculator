@@ -18,24 +18,37 @@ const division = document.querySelector('.division')
 
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-function clear() {
-  input.value = '0'
-}
-
 function maxLengthCheck() {
   if (input.value.length > input.maxLength)
     input.value = input.value.slice(0, input.maxLength)
 }
 
-function addPlus() {}
+function clear() {
+  input.value = '0'
+}
 
-function addMinus() {}
+function addPlus() {
+  input.value += '+'
+}
 
-function addResult() {}
+function addMinus() {
+  input.value += '-'
+}
 
-function addMultiplication() {}
+function addResult() {
+  let exp = input.value
+  if (exp) {
+    input.value = eval(exp)
+  }
+}
 
-function addDivision() {}
+function addMultiplication() {
+  input.value += '*'
+}
+
+function addDivision() {
+  input.value += '/'
+}
 
 function addOne() {
   if (input.value === numbers[0]) {
