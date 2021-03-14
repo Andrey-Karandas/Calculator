@@ -1,0 +1,75 @@
+.header {
+  margin-left: 500px;
+  border: 2px solid black;
+  width: 300px;
+  height: 300px;
+  background-color: #b5b8b1;
+}
+
+.menu {
+  border: 1px solid black;
+  width: 250px;
+  margin-left: 24px;
+  margin-top: 25px;
+}
+
+.menu span {
+  margin-left: 10px;
+}
+
+.block {
+  height: 225px;
+  width: 250px;
+  border: 1px solid black;
+  margin-left: 24px;
+  margin-bottom: 10px;
+}
+
+.block input {
+  margin-top: 10px;
+  margin-left: 20px;
+  height: 60px;
+  width: 200px;
+  border: 1px solid black;
+  text-align: end;
+}
+
+.string_one {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.string_two {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.string_three {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.string_four {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.string_one button {
+  height: 30px;
+  width: 48px;
+}
+
+.string_two button {
+  height: 30px;
+  width: 48px;
+}
+
+.string_three button {
+  height: 30px;
+  width: 48px;
+}
+
+.string_four button {
+  height: 30px;
+  width: 48px;
+}
