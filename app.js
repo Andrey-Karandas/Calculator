@@ -16,8 +16,6 @@ const plus = document.querySelector('.plus')
 const multiply = document.querySelector('.multiply')
 const division = document.querySelector('.division')
 
-const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
 function maxLengthCheck() {
   if (input.value.length > input.maxLength)
     input.value = input.value.slice(0, input.maxLength)
@@ -51,102 +49,102 @@ function addDivision() {
 }
 
 function addOne() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[1]
+  if (input.value === '0') {
+    input.value = '1'
   } else if (input.value) {
-    input.value += numbers[1]
+    input.value += '1'
   } else if (input.value === '') {
-    input.value = numbers[1]
+    input.value = '1'
   }
 }
 
 function addTwo() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[2]
+  if (input.value === '0') {
+    input.value = '2'
   } else if (input.value) {
-    input.value += numbers[2]
+    input.value += '2'
   } else if (input.value === '') {
-    input.value = numbers[2]
+    input.value = '2'
   }
 }
 
 function addThree() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[3]
+  if (input.value === '0') {
+    input.value = '3'
   } else if (input.value) {
-    input.value += numbers[3]
+    input.value += '3'
   } else if (input.value === '') {
-    input.value = numbers[3]
+    input.value = '3'
   }
 }
 
 function addFour() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[4]
+  if (input.value === '0') {
+    input.value = '4'
   } else if (input.value) {
-    input.value += numbers[4]
+    input.value += '4'
   } else if (input.value === '') {
-    input.value = numbers[4]
+    input.value = '4'
   }
 }
 
 function addFive() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[5]
+  if (input.value === '0') {
+    input.value = '5'
   } else if (input.value) {
-    input.value += numbers[5]
+    input.value += '5'
   } else if (input.value === '') {
-    input.value = numbers[5]
+    input.value = '5'
   }
 }
 
 function addSix() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[6]
+  if (input.value === '0') {
+    input.value = '6'
   } else if (input.value) {
-    input.value += numbers[6]
+    input.value += '6'
   } else if (input.value === '') {
-    input.value = numbers[6]
+    input.value = '6'
   }
 }
 
 function addSeven() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[7]
+  if (input.value === '0') {
+    input.value = '7'
   } else if (input.value) {
-    input.value += numbers[7]
+    input.value += '7'
   } else if (input.value === '') {
-    input.value = numbers[7]
+    input.value = '7'
   }
 }
 
 function addEight() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[8]
+  if (input.value === '0') {
+    input.value = '8'
   } else if (input.value) {
-    input.value += numbers[8]
+    input.value += '8'
   } else if (input.value === '') {
-    input.value = numbers[8]
+    input.value = '8'
   }
 }
 
 function addNine() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[9]
+  if (input.value === '0') {
+    input.value = '9'
   } else if (input.value) {
-    input.value += numbers[9]
+    input.value += '9'
   } else if (input.value === '') {
-    input.value = numbers[9]
+    input.value = '9'
   }
 }
 
 function addZero() {
-  if (input.value === numbers[0]) {
-    input.value = numbers[0]
+  if (input.value === '0') {
+    input.value = '0'
   } else if (input.value) {
-    input.value += numbers[0]
+    input.value += '0'
   } else if (input.value === '') {
-    input.value = numbers[0]
+    input.value = '0'
   }
 }
 multiply.addEventListener('click', addMultiplication)
