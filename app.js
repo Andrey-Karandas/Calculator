@@ -1,176 +1,153 @@
 const input = document.querySelector('.input')
-const one = document.querySelector('.one')
-const two = document.querySelector('.two')
-const three = document.querySelector('.three')
-const four = document.querySelector('.four')
-const five = document.querySelector('.five')
-const six = document.querySelector('.six')
-const seven = document.querySelector('.seven')
-const eight = document.querySelector('.eight')
-const nine = document.querySelector('.nine')
-const zero = document.querySelector('.zero')
-const c = document.querySelector('.C')
-const result = document.querySelector('.result')
-const minus = document.querySelector('.minus')
-const plus = document.querySelector('.plus')
-const multiply = document.querySelector('.multiply')
-const division = document.querySelector('.division')
+const buttonOne = document.querySelector('.one')
+const buttonTwo = document.querySelector('.two')
+const buttonThree = document.querySelector('.three')
+const buttonFour = document.querySelector('.four')
+const buttonFive = document.querySelector('.five')
+const buttonSix = document.querySelector('.six')
+const buttonSeven = document.querySelector('.seven')
+const buttonEight = document.querySelector('.eight')
+const buttonNine = document.querySelector('.nine')
+const buttonZero = document.querySelector('.zero')
+const buttonClear = document.querySelector('.c')
+const buttonResult = document.querySelector('.result')
+const buttonMinus = document.querySelector('.minus')
+const buttonPlus = document.querySelector('.plus')
+const buttonMultiply = document.querySelector('.multiply')
+const buttonDivision = document.querySelector('.division')
 
-function maxLengthCheck() {
-  if (input.value.length > input.maxLength)
-    input.value = input.value.slice(0, input.maxLength)
+let oneValue
+let twoValue
+let operator
+
+// addOperator
+let addPlus = () => (operator = '+')
+
+let addMinus = () => (operator = '-')
+
+let addMultiply = () => (operator = '*')
+
+let addDivision = () => (operator = '/')
+
+// clear
+let clearInput = () => (input.value = '')
+
+// getValue
+function getOneValue() {
+  return (oneValue = +input.value)
 }
 
-function clear() {
-  input.value = '0'
+function getTwoValue() {
+  return (twoValue = +input.value)
 }
 
-function addPlus() {
-  input.value += '+'
+// calc
+function calcSum() {
+  return (input.value = oneValue + twoValue)
 }
 
-function addMinus() {
-  input.value += '-'
+function calcDifference() {
+  return (input.value = oneValue - twoValue)
 }
 
-function addResult() {
-  let exp = input.value
-  if (exp) {
-    input.value = eval(exp)
-  }
+function calcProduct() {
+  return (input.value = oneValue * twoValue)
 }
 
-function addMultiplication() {
-  input.value += '*'
+function calcDivisor() {
+  return (input.value = oneValue / twoValue)
 }
 
-function addDivision() {
-  input.value += '/'
+// checkOperator
+function checkOperatorPlus() {
+  if (operator == '+') calcSum()
 }
+
+function checkOperatorMinus() {
+  if (operator == '-') calcDifference()
+}
+
+function checkOperatorMultiply() {
+  if (operator == '*') calcProduct()
+}
+
+function checkOperatorDivision() {
+  if (operator == '/') calcDivisor()
+}
+
+// addNumber
 
 function addOne() {
-  if (input.value === '0') {
-    input.value = '1'
-  } else if (input.value) {
-    input.value += '1'
-  } else if (input.value === '') {
-    input.value = '1'
-  }
+  return (input.value += 1)
 }
 
 function addTwo() {
-  if (input.value === '0') {
-    input.value = '2'
-  } else if (input.value) {
-    input.value += '2'
-  } else if (input.value === '') {
-    input.value = '2'
-  }
+  return (input.value += 2)
 }
 
 function addThree() {
-  if (input.value === '0') {
-    input.value = '3'
-  } else if (input.value) {
-    input.value += '3'
-  } else if (input.value === '') {
-    input.value = '3'
-  }
+  return (input.value += 3)
 }
 
 function addFour() {
-  if (input.value === '0') {
-    input.value = '4'
-  } else if (input.value) {
-    input.value += '4'
-  } else if (input.value === '') {
-    input.value = '4'
-  }
+  return (input.value += 4)
 }
 
 function addFive() {
-  if (input.value === '0') {
-    input.value = '5'
-  } else if (input.value) {
-    input.value += '5'
-  } else if (input.value === '') {
-    input.value = '5'
-  }
+  return (input.value += 5)
 }
 
 function addSix() {
-  if (input.value === '0') {
-    input.value = '6'
-  } else if (input.value) {
-    input.value += '6'
-  } else if (input.value === '') {
-    input.value = '6'
-  }
+  return (input.value += 6)
 }
 
 function addSeven() {
-  if (input.value === '0') {
-    input.value = '7'
-  } else if (input.value) {
-    input.value += '7'
-  } else if (input.value === '') {
-    input.value = '7'
-  }
+  return (input.value += 7)
 }
 
 function addEight() {
-  if (input.value === '0') {
-    input.value = '8'
-  } else if (input.value) {
-    input.value += '8'
-  } else if (input.value === '') {
-    input.value = '8'
-  }
+  return (input.value += 8)
 }
 
 function addNine() {
-  if (input.value === '0') {
-    input.value = '9'
-  } else if (input.value) {
-    input.value += '9'
-  } else if (input.value === '') {
-    input.value = '9'
-  }
+  return (input.value += 9)
 }
 
 function addZero() {
-  if (input.value === '0') {
-    input.value = '0'
-  } else if (input.value) {
-    input.value += '0'
-  } else if (input.value === '') {
-    input.value = '0'
-  }
+  return (input.value += 0)
 }
-multiply.addEventListener('click', addMultiplication)
-result.addEventListener('click', addResult)
-plus.addEventListener('click', addPlus)
-minus.addEventListener('click', addMinus)
-division.addEventListener('click', addDivision)
-c.addEventListener('click', clear)
-one.addEventListener('click', maxLengthCheck)
-one.addEventListener('click', addOne)
-two.addEventListener('click', addTwo)
-two.addEventListener('click', maxLengthCheck)
-three.addEventListener('click', addThree)
-three.addEventListener('click', maxLengthCheck)
-four.addEventListener('click', addFour)
-four.addEventListener('click', maxLengthCheck)
-five.addEventListener('click', addFive)
-five.addEventListener('click', maxLengthCheck)
-six.addEventListener('click', addSix)
-six.addEventListener('click', maxLengthCheck)
-seven.addEventListener('click', addSeven)
-seven.addEventListener('click', maxLengthCheck)
-eight.addEventListener('click', addEight)
-eight.addEventListener('click', maxLengthCheck)
-nine.addEventListener('click', addNine)
-nine.addEventListener('click', maxLengthCheck)
-zero.addEventListener('click', addZero)
-zero.addEventListener('click', maxLengthCheck)
-input.addEventListener('input', maxLengthCheck)
+
+// Event
+buttonResult.addEventListener('click', getTwoValue)
+buttonResult.addEventListener('click', checkOperatorPlus)
+buttonResult.addEventListener('click', checkOperatorMinus)
+buttonResult.addEventListener('click', checkOperatorMultiply)
+buttonResult.addEventListener('click', checkOperatorDivision)
+
+buttonPlus.addEventListener('click', addPlus)
+buttonPlus.addEventListener('click', getOneValue)
+buttonPlus.addEventListener('click', clearInput)
+
+buttonMinus.addEventListener('click', addMinus)
+buttonMinus.addEventListener('click', getOneValue)
+buttonMinus.addEventListener('click', clearInput)
+
+buttonMultiply.addEventListener('click', addMultiply)
+buttonMultiply.addEventListener('click', getOneValue)
+buttonMultiply.addEventListener('click', clearInput)
+
+buttonDivision.addEventListener('click', addDivision)
+buttonDivision.addEventListener('click', getOneValue)
+buttonDivision.addEventListener('click', clearInput)
+
+buttonClear.addEventListener('click', clearInput)
+buttonOne.addEventListener('click', addOne)
+buttonTwo.addEventListener('click', addTwo)
+buttonThree.addEventListener('click', addThree)
+buttonFour.addEventListener('click', addFour)
+buttonFive.addEventListener('click', addFive)
+buttonSix.addEventListener('click', addSix)
+buttonSeven.addEventListener('click', addSeven)
+buttonEight.addEventListener('click', addEight)
+buttonNine.addEventListener('click', addNine)
+buttonZero.addEventListener('click', addZero)
