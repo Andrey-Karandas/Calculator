@@ -1,74 +1,47 @@
-const bodyCalculate = document.querySelector('.body')
-const input = document.querySelector('.input')
-const buttonAll = document.querySelectorAll('.button')
-const maxLength = input.getAttribute('maxlength')
-const empty = ''
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.querySelector('.input')
+  const buttons = document.querySelectorAll('.button')
+  const maxLength = +input.getAttribute('maxlength')
 
-let operator
-let oneValue
-let twoValue
-
-const className = {
-  operator: '.operator',
-  button: '.button',
-  clear: '.clear',
-  result: '.result',
-  stop: '.stop',
-}
-
-// Events
-
-bodyCalculate.addEventListener('click', (event) => {
-  function addNumber() {
-    if (event.target.closest(className.button)) {
-      return (input.value += event.target.textContent)
+  function getResult() {
+    let numbers = input.value.split(/[-+*/]/)
+    let operators = []
+    for (let i = 0; i < input.value.length; i++) {
+      if (
+        input.value[i] === '+' ||
+        input.value[i] === '-' ||
+        input.value[i] === '*' ||
+        input.value[i] === '/'
+      )
+        operators.push(input.value[i])
     }
-  }
 
-  function saveOneValue() {
-    if (event.target.closest(className.operator)) {
-      return (oneValue = parseInt(input.value))
+    let result = parseInt(numbers[0])
+    for (let i = 1; i < numbers.length; i++) {
+      if (operators[i - 1] === '+') {
+        result += parseInt(numbers[i])
+      } else if (operators[i - 1] === '-') {
+        result -= parseInt(numbers[i])
+      } else if (operators[i - 1] === '*') {
+        result *= parseInt(numbers[i])
+      } else if (operators[i - 1] === '/') {
+        result /= parseInt(numbers[i])
+      }
     }
+    input.value = result
   }
 
-  function saveTwoValue() {
-    if (event.target.closest(className.result)) {
-      twoValue = parseInt(input.value)
-      checkOperator()
-    }
-  }
+  const clearInput = () => (input.value = '')
 
-  function saveOperator() {
-    if (event.target.closest(className.operator)) {
-      return (operator = event.target.textContent)
-    }
-  }
-
-  function checkOperator() {
-    if (operator == '-') input.value = oneValue - twoValue
-    if (operator == '+') input.value = oneValue + twoValue
-    if (operator == '*') input.value = oneValue * twoValue
-    if (operator == '/') input.value = oneValue / twoValue
-  }
-
-  function clearInput() {
-    if (event.target.closest(className.operator)) {
-      return (input.value = empty)
-    }
-  }
-
-  function ckeckInputLength() {
-    if (input.value.length == maxLength) {
-      buttonAll.forEach((button) => (button.className = 'stop'))
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.button')) input.value += event.target.textContent
+    if (input.value.length === maxLength) {
+      buttons.forEach((button) => (button.className = 'stop'))
     } else {
-      buttonAll.forEach((button) => (button.className = 'button'))
+      buttons.forEach((button) => (button.className = 'button'))
     }
-  }
+  })
 
-  addNumber(),
-    saveOneValue(),
-    saveTwoValue(),
-    saveOperator(),
-    clearInput(),
-    ckeckInputLength()
+  document.querySelector('.clear').addEventListener('click', clearInput)
+  document.querySelector('.operator').addEventListener('click', getResult)
 })
